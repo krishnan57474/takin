@@ -1,0 +1,2378 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css="false" b:defaultwidgetversion="2" b:layoutsVersion="3" b:responsive="true"  expr:dir="data:blog.languageDirection" expr:lang="data:blog.locale">
+<head prefix="og: http://ogp.me/ns# fb: http://graph.facebook.com/schema/og/ article: http://graph.facebook.com/schema/og/article">
+    <!-- meta for browsers start -->
+    <meta expr:charset="data:blog.encoding" />
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <base expr:href="data:blog.canonicalHomepageUrl" />
+    <link expr:href="data:blog.blogspotFaviconUrl" rel="shortcut icon" type="image/x-icon" />
+    <!-- meta for browsers end -->
+
+    <!-- page specific meta start -->
+    <b:switch var="data:blog.pageType">
+        <b:case value="archive" />
+            <!-- archive page start -->
+            <title><data:blog.pageName.escaped /> - <data:blog.title.escaped /></title>
+
+            <!-- meta for search engines start -->
+            <meta content="follow, index" name="robots" />
+            <!-- meta for search engines end -->
+            <!-- archive page end -->
+
+        <b:case value="error_page" />
+            <!-- error page start -->
+            <title><data:blog.title.escaped /></title>
+
+            <!-- meta for search engines start -->
+            <meta content="noindex" name="robots" />
+            <!-- meta for search engines end -->
+            <!-- error page end -->
+
+        <b:case value="item" />
+            <!-- item page start -->
+            <title><data:blog.pageName.escaped /> - <data:blog.title.escaped /></title>
+
+            <!-- meta for search engines start -->
+            <link expr:href="data:blog.canonicalUrl" rel="canonical" />
+            <meta content="follow, index" name="robots" />
+
+            <b:if cond="data:blog.metaDescription">
+                <meta expr:content="data:blog.metaDescription.escaped" name="description" />
+            </b:if>
+            <!-- meta for search engines end -->
+
+            <!-- meta for facebook start -->
+            <meta property="og:title" expr:content="data:blog.pageName.escaped" />
+
+            <b:if cond="data:blog.metaDescription">
+                <meta property="og:description" expr:content="data:blog.metaDescription.escaped" />
+            </b:if>
+
+            <b:if cond="data:blog.postImageUrl">
+                <meta property="og:image" expr:content="resizeImage(data:blog.postImageUrl, 1100, &quot;1100:660&quot;)" />
+            </b:if>
+
+            <meta property="og:url" expr:content="data:blog.canonicalUrl" />
+            <meta property="og:site_name" expr:content="data:blog.title" />
+            <meta property="og:type" content="article" />
+            <!-- meta for facebook end -->
+
+            <!-- meta for twitter start -->
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" expr:content="data:blog.pageName.escaped" />
+
+            <b:if cond="data:blog.metaDescription">
+                <meta name="twitter:description" expr:content="data:blog.metaDescription.escaped" />
+            </b:if>
+
+            <b:if cond="data:blog.postImageUrl">
+                <meta name="twitter:image" expr:content="resizeImage(data:blog.postImageUrl, 1100, &quot;1100:660&quot;)" />
+            </b:if>
+            <!-- meta for twitter end -->
+            <!-- item page end -->
+
+        <b:case value="static_page" />
+            <!-- static page start -->
+            <title><data:blog.pageName.escaped /> - <data:blog.title.escaped /></title>
+
+            <!-- meta for search engines start -->
+            <link expr:href="data:blog.canonicalUrl" rel="canonical" />
+            <meta content="follow, index" name="robots" />
+
+            <b:if cond="data:blog.metaDescription">
+                <meta expr:content="data:blog.metaDescription.escaped" name="description" />
+            </b:if>
+            <!-- meta for search engines end -->
+            <!-- static page end -->
+
+        <b:default />
+            <b:if cond="data:blog.url == data:blog.homepageUrl">
+                <!-- home page start -->
+                <title><data:blog.title.escaped /></title>
+
+                <!-- meta for search engines start -->
+                <link expr:href="data:blog.canonicalUrl" rel="canonical" />
+                <meta content="follow, index" name="robots" />
+
+                <b:if cond="data:blog.metaDescription">
+                    <meta expr:content="data:blog.metaDescription.escaped" name="description" />
+                </b:if>
+                <!-- meta for search engines end -->
+
+                <!-- meta for facebook start -->
+                <meta property="og:title" expr:content="data:blog.title.escaped" />
+
+                <b:if cond="data:blog.metaDescription">
+                    <meta property="og:description" expr:content="data:blog.metaDescription.escaped" />
+                </b:if>
+
+                <!-- <meta property="og:image" content="" /> -->
+
+                <meta property="og:url" expr:content="data:blog.canonicalUrl" />
+                <meta property="og:site_name" expr:content="data:blog.title" />
+                <meta property="og:type" content="website" />
+                <!-- meta for facebook end -->
+
+                <!-- meta for twitter start -->
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" expr:content="data:blog.title.escaped" />
+
+                <b:if cond="data:blog.metaDescription">
+                    <meta name="twitter:description" expr:content="data:blog.metaDescription.escaped" />
+                </b:if>
+
+                <!-- <meta name="twitter:image" content="" /> -->
+                <!-- meta for twitter end -->
+                <!-- home page end -->
+
+            <b:elseif cond="data:blog.searchQuery == &quot;&quot; and data:blog.searchLabel == &quot;&quot;" />
+                <!-- index page start -->
+                <title><data:blog.title.escaped /></title>
+
+                <!-- meta for search engines start -->
+                <meta content="follow, index" name="robots" />
+                <!-- meta for search engines end -->
+                <!-- index page end -->
+            </b:if>
+
+            <b:if cond="data:blog.searchQuery">
+                <!-- search page start -->
+                <title><data:blog.searchQuery.escaped /> - <data:blog.title.escaped /></title>
+
+                <!-- meta for search engines start -->
+                <meta content="follow, index" name="robots" />
+                <!-- meta for search engines end -->
+                <!-- search page end -->
+            </b:if>
+
+            <b:if cond="data:blog.searchLabel">
+                <!-- label page start -->
+                <title><data:blog.pageName.escaped /> - <data:blog.title.escaped /></title>
+
+                <!-- meta for search engines start -->
+                <meta content="follow, index" name="robots" />
+                <!-- meta for search engines end -->
+                <!-- label page end -->
+            </b:if>
+    </b:switch>
+    <!-- page specific meta end -->
+
+    <!-- styles start -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&amp;display=swap" rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/twbs/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet" />
+
+    <style>
+        html {
+            font-size: 14px;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* backgrounds */
+        .bg-1 {
+            background: #1f2024;
+        }
+
+        /* page heading */
+        .pg-heading {
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .pg-heading::before {
+            content: "";
+            width: 0;
+            height: 0;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            border-left: 0;
+            border-right: 5px solid transparent;
+            border-top: 5px solid currentColor;
+        }
+
+        .pg-heading::after {
+            content: "";
+            background: currentColor;
+            width: 40px;
+            height: 2px;
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+        }
+
+        .pg-heading-intro {
+            height: 2.4em;
+            overflow: hidden;
+        }
+
+        .pg-desc-intro {
+            height: 4.5em;
+            overflow: hidden;
+        }
+
+        .pg-badge-right-top {
+            top: 10px;
+            right: 10px;
+        }
+
+        .pg-badge-right-bottom {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        /* menu */
+        .g-menu-state,
+        .g-menu-toggle,
+        .g-sub-menu {
+            display: none;
+        }
+
+        .g-menu-toggle {
+            padding: 0.5em 3.5em 0.5em 0.5em;
+            position: relative;
+        }
+
+        .g-menu-icon {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin: 0;
+            padding: 1em;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        .g-menu-toggle .g-menu-icon::after {
+            content: "\f0c9";
+        }
+
+        .g-menu-state:checked ~ .g-menu-toggle .g-menu-icon::after {
+            content: "\f00d";
+        }
+
+        .g-main-menu,
+        .g-sub-menu {
+            background: #1f2024;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .g-main-menu li {
+            border-bottom: 1px solid #ddd;
+            position: relative;
+        }
+
+        .g-main-menu li:last-child {
+            border-bottom: none;
+        }
+
+        .g-main-menu a,
+        .g-menu-item {
+            color: #fff;
+            display: block;
+            padding: 1em;
+        }
+
+        .g-menu-icon,
+        .g-main-menu a:hover,
+        .g-menu-item:hover,
+        .g-main-menu a:focus,
+        .g-menu-item:focus {
+            outline: none;
+        }
+
+        .g-menu-state ~ a,
+        .g-menu-state ~ .g-menu-item {
+            padding-right: 3.5em;
+        }
+
+        .g-main-menu .active {
+            background: #08f;
+        }
+
+        @media (max-width: 575px) {
+            .g-menu-state ~ .g-menu-icon::after {
+                content: "\f067";
+            }
+
+            .g-menu-state:checked ~ .g-menu-icon::after {
+                content: "\f068";
+            }
+
+            .g-menu-state:checked ~ .g-main-menu,
+            .g-menu-state:checked ~ .g-sub-menu {
+                display: block;
+            }
+
+            .g-sub-menu {
+                margin-left: 1em;
+            }
+
+            .g-sub-menu li:first-child {
+                border-top: 1px solid #ddd;
+            }
+        }
+
+        @media (min-width: 576px) {
+            .g-main-menu,
+            .g-menu-state:checked ~ .g-main-menu {
+                display: flex;
+                flex-flow: row wrap;
+            }
+
+            .g-main-menu > li {
+                border-bottom: none;
+            }
+
+            .g-main-menu li:hover > .g-sub-menu {
+                display: block;
+            }
+
+            .g-sub-menu {
+                border: 1px solid #ddd;
+                left: 0;
+                min-width: 10em;
+                position: absolute;
+                top: 100%;
+                white-space: nowrap;
+                z-index: 2;
+            }
+
+            .g-sub-menu .g-sub-menu {
+                left: 100%;
+                top: 0;
+            }
+
+            .g-menu-state ~ a,
+            .g-menu-state ~ .g-menu-item {
+                padding-right: 2.5em;
+            }
+
+            .g-menu-state ~ .g-menu-icon::after {
+                content: "\f078";
+            }
+
+            .g-sub-menu .g-menu-state ~ .g-menu-icon::after {
+                content: "\f054";
+            }
+
+            .g-menu-icon {
+                padding: 1em 0.5em;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .g-menu-toggle {
+                display: block;
+            }
+
+            .g-menu-toggle .g-menu-icon {
+                top: 50%;
+                transform: translateY(-50%);
+                padding: 0.25em;
+            }
+
+            .g-main-menu {
+                display: none;
+            }
+
+            .g-menu-state ~ a,
+            .g-menu-state ~ .g-menu-item {
+                padding-right: 3.5em;
+            }
+
+            .g-menu-icon {
+                padding: 1em;
+            }
+        }
+
+        /* grid item */
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grid-item::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 100%;
+            background-image: linear-gradient(to bottom, transparent, #000);
+        }
+
+        .grid-content {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 0 20px 10px;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .grid-heading {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .grid-lead-heading {
+            font-size: 1.75rem;
+        }
+
+        /* marquee */
+        @keyframes marquee {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(-100%, 0);
+            }
+        }
+
+        .marquee-wrap {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .marquee-heading {
+            position: relative;
+            z-index: 1;
+        }
+
+        .marquee-wrap .marquee {
+            display: inline-block;
+            animation: marquee 7s linear;
+        }
+
+        .marquee-wrap .marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /*  > md */
+        @media (max-width: 767px) {
+            /* grid items */
+            .grid-heading {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* >= md */
+        @media (min-width: 768px) {
+            /* backgrounds */
+            .bg-md-1 {
+                background: #1f2024;
+            }
+        }
+
+        /* >= lg */
+        @media (min-width: 992px) {
+            /* grid items */
+            .grid-desc {
+                opacity: 0;
+                height: 0;
+                transition: all ease 0.15s;
+            }
+
+            .grid-item:hover .grid-desc,
+            .grid-lead-desc {
+                opacity: 1;
+                height: 3em;
+            }
+        }
+    </style>
+
+    <b:skin><![CDATA[]]></b:skin>
+    <!-- styles end -->
+</head>
+<body>
+
+    <!-- header content start -->
+    <header>
+        <div class="border-bottom small mb-3">
+            <div class="container">
+                <div class="form-row align-items-center">
+                    <div class="col-sm-8 col-md-9 col-lg-10">
+                        <div class="marquee-wrap">
+                            <span class="bg-danger text-white d-inline-block p-2 marquee-heading">Breaking News</span>
+                            <a class="text-body j-breaking-news" href=""></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-3 col-lg-2 d-none d-sm-block">
+                        <ul class="list-unstyled list-inline mb-0">
+                            <li class="list-inline-item px-1">
+                                <a target="_blank" class="text-body" href="">
+                                    <span class="fab fa-fw fa-facebook-f" />
+                                </a>
+                            </li>
+                            <li class="list-inline-item px-1">
+                                <a target="_blank" class="text-body" href="">
+                                    <span class="fab fa-fw fa-twitter" />
+                                </a>
+                            </li>
+                            <li class="list-inline-item px-1">
+                                <a target="_blank" class="text-body" href="">
+                                    <span class="fab fa-fw fa-youtube" />
+                                </a>
+                            </li>
+                            <li class="list-inline-item px-1">
+                                <a target="_blank" class="text-body" href="">
+                                    <span class="fab fa-fw fa-whatsapp" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mb-md-3">
+            <div class="row align-items-center">
+                <div class="col-md-4 col-lg-3 pb-3 d-none d-md-block order-3 order-md-1">
+                    <b:section class="header" id="logo-all" showaddelement="no">
+                        <b:widget id="Image1" locked="true" type="Image">
+                            <b:includable id="main" var="widget">
+                                <div class="text-center">
+                                    <a href="">
+                                        <img expr:alt="data:widget.caption.escaped" class="img-fluid" expr:src="data:widget.sourceUrl" />
+                                    </a>
+                                </div>
+                            </b:includable>
+                        </b:widget>
+                    </b:section>
+                </div>
+
+                <div class="col-md-8 col-lg-9 pb-3 order-2">
+                    <b:section class="header" id="banner-all" showaddelement="yes">
+                        <b:widget id="Image2" locked="false" type="Image">
+                            <b:includable id="main" var="widget">
+                                <div class="text-center">
+                                    <b:if cond="data:widget.link">
+                                        <a expr:href="data:widget.link" rel="nofollow">
+                                            <img expr:alt="data:widget.caption.escaped" class="img-fluid" expr:src="data:widget.sourceUrl" />
+                                        </a>
+                                    <b:else />
+                                        <img expr:alt="data:widget.caption.escaped" class="img-fluid" expr:src="data:widget.sourceUrl" />
+                                    </b:if>
+                                </div>
+                            </b:includable>
+                        </b:widget>
+                    </b:section>
+                </div>
+
+                <div class="col-md-12 order-1 order-md-3">
+                    <div class="row no-gutters align-items-center bg-md-1">
+                        <nav class="col-md-10 g-menu mb-2 mb-md-0">
+                            <input class="g-menu-state" id="menu-state" type="checkbox" />
+
+                            <div class="g-menu-toggle">
+                                <div class="row align-items-center">
+                                    <div class="col-9">
+                                        <b:section class="header" id="logo-mobile-all" showaddelement="no">
+                                            <b:widget id="Image3" locked="true" type="Image">
+                                                <b:includable id="main" var="widget">
+                                                    <a href="">
+                                                        <img expr:alt="data:widget.caption.escaped" class="img-fluid" expr:src="data:widget.sourceUrl" />
+                                                    </a>
+                                                </b:includable>
+                                            </b:widget>
+                                        </b:section>
+                                    </div>
+                                    <div class="col-3 align-self-end text-right">
+                                        <button class="btn btn-link text-body j-search-btn" type="button">
+                                            <span class="fa fa-search fa-2x" />
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <label class="g-menu-icon fa-2x" for="menu-state" />
+                            </div>
+
+                            <ul class="g-main-menu text-white">
+                                <li>
+                                    <a href="">
+                                        <span class="fas fa-home" />
+                                        Home
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="2020/06?max-results=6">
+                                        <span class="fas fa-archive" />
+                                        Archive
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="404">
+                                        <span class="fas fa-bug" />
+                                        Error
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="p/about.html">
+                                        <span class="fas fa-pager" />
+                                        Static
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="search/?q=world&amp;max-results=6">
+                                        <span class="fas fa-search" />
+                                        Search
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="search/label/Food?max-results=6">
+                                        <span class="fas fa-tags" />
+                                        Label
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="search?max-results=6">
+                                        <span class="fas fa-indent" />
+                                        Index
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <div class="col-md-2 bg-1 mb-2 mb-md-0 d-none d-md-block j-search-input">
+                            <form expr:action="data:blog.searchUrl" class="input-group" method="get">
+                                <input autocomplete="off" class="form-control shadow-none border-0 bg-transparent text-white" name="q" expr:placeholder="data:messages.searchThisBlog" type="text" />
+
+                                <input name="max-results" value="6" type="hidden" />
+
+                                <div class="input-group-append">
+                                    <button class="btn btn-light border-0 bg-transparent text-muted" type="submit">
+                                        <span class="fas fa-search" />
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header content end -->
+
+    <b:if cond="data:blog.pageType != &quot;error_page&quot;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 order-md-1">
+                    <!-- page specific content start -->
+                    <!-- archive page start -->
+                    <b:section class="main" id="main-top-archive" showaddelement="yes" cond="data:blog.pageType == &quot;archive&quot;" />
+                    <!-- archive page end -->
+
+                    <!-- item page start -->
+                    <b:section class="main" id="main-top-item" showaddelement="yes" cond="data:blog.pageType == &quot;item&quot;" />
+                    <!-- item page end -->
+
+                    <!-- static page start -->
+                    <b:section class="main" id="main-top-static" showaddelement="yes" cond="data:blog.pageType == &quot;static_page&quot;" />
+                    <!-- static page end -->
+
+                    <!-- home page start -->
+                    <b:section class="main" id="main-top-home" showaddelement="yes" cond="data:blog.url == data:blog.homepageUrl">
+                        <b:widget id="PopularPosts1" locked="false" type="PopularPosts">
+                            <b:includable id="main" var="widget">
+                                <div class="form-row mb-3">
+                                    <div class="col-lg-6">
+                                        <b:if cond="data:widget.posts[0]">
+                                            <b:include name="lead-content" data="data:widget.posts[0]" />
+                                        </b:if>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-row">
+                                            <b:if cond="data:widget.posts[1]">
+                                                <b:include name="content" data="data:widget.posts[1]" />
+                                            </b:if>
+
+                                            <b:if cond="data:widget.posts[2]">
+                                                <b:include name="content" data="data:widget.posts[2]" />
+                                            </b:if>
+                                        </div>
+                                        <div class="form-row">
+                                            <b:if cond="data:widget.posts[3]">
+                                                <b:include name="content" data="data:widget.posts[3]" />
+                                            </b:if>
+
+                                            <b:if cond="data:widget.posts[4]">
+                                                <b:include name="content" data="data:widget.posts[4]" />
+                                            </b:if>
+                                        </div>
+                                    </div>
+                                </div>
+                            </b:includable>
+
+                            <b:includable id="lead-content" var="post">
+                                <article class="mb-2">
+                                    <div class="position-relative overflow-hidden">
+                                        <a class="d-block grid-item text-white" expr:href="data:post.link ?: data:post.url">
+                                            <figure class="mb-0">
+                                                <b:if cond="data:post.featuredImage">
+                                                    <img alt="" class="img-fluid" expr:src="resizeImage(data:post.featuredImage, 780, &quot;780:470&quot;)" />
+                                                <b:else />
+                                                    <img alt="" class="img-fluid" src="https://dummyimage.com/780x470/f2f2f2/343434.jpg?text=No+Image" />
+                                                </b:if>
+                                            </figure>
+
+                                            <div class="grid-content">
+                                                <header>
+                                                    <time expr:datetime="data:post.date.iso8601" expr:title="data:post.date.iso8601">
+                                                        <b:eval expr="data:post.date format &quot;MMM dd, y&quot;" />
+                                                    </time>
+                                                    <h2 class="pg-heading-intro grid-heading">
+                                                        <data:post.title.escaped />
+                                                    </h2>
+                                                </header>
+                                                <p class="pg-desc-intro grid-desc grid-lead-desc">
+                                                    <b:eval expr="snippet(data:post.body, { length: 150, links: false, linebreaks: false }).escaped" />
+                                                </p>
+                                            </div>
+                                        </a>
+
+                                        <b:if cond="data:post.labels">
+                                            <b:include name="labels" data="post" />
+                                        </b:if>
+                                    </div>
+                                </article>
+                            </b:includable>
+
+                            <b:includable id="content" var="post">
+                                <article class="col-md-6 mb-2">
+                                    <div class="position-relative overflow-hidden">
+                                        <a class="d-block grid-item text-white" expr:href="data:post.link ?: data:post.url">
+                                            <figure class="mb-0">
+                                                <b:if cond="data:post.featuredImage">
+                                                    <img alt="" class="img-fluid" expr:src="resizeImage(data:post.featuredImage, 540, &quot;540:326&quot;)" />
+                                                <b:else />
+                                                    <img alt="" class="img-fluid" src="https://dummyimage.com/540x326/f2f2f2/343434.jpg?text=No+Image" />
+                                                </b:if>
+                                            </figure>
+
+                                            <div class="grid-content">
+                                                <header>
+                                                    <time expr:datetime="data:post.date.iso8601" expr:title="data:post.date.iso8601">
+                                                        <b:eval expr="data:post.date format &quot;MMM dd, y&quot;" />
+                                                    </time>
+                                                    <h2 class="pg-heading-intro grid-heading">
+                                                        <data:post.title.escaped />
+                                                    </h2>
+                                                </header>
+                                                <p class="pg-desc-intro grid-desc">
+                                                    <b:eval expr="snippet(data:post.body, { length: 150, links: false, linebreaks: false }).escaped" />
+                                                </p>
+                                            </div>
+                                        </a>
+
+                                        <b:if cond="data:post.labels">
+                                            <b:include name="labels" data="post" />
+                                        </b:if>
+                                    </div>
+                                </article>
+                            </b:includable>
+
+                            <b:includable id="labels" var="post">
+                                <div class="position-absolute pg-badge-right-top pl-2">
+                                    <b:loop index="i" values="data:post.labels" var="label">
+                                        <a class="badge p-2 mb-2 mr-1" expr:href="data:label.url + &quot;?max-results=6&quot;">
+                                            <b:switch var="(data:post.id + data:i) % 4">
+                                                <b:case value="0" />
+                                                    <b:class name="badge-primary" cond="1" />
+
+                                                <b:case value="1" />
+                                                    <b:class name="badge-success" cond="1" />
+
+                                                <b:case value="2" />
+                                                    <b:class name="badge-danger" cond="1" />
+
+                                                <b:case value="3" />
+                                                    <b:class name="badge-warning" cond="1" />
+
+                                                <b:default />
+                                                    <b:class name="badge-secondary" cond="1" />
+                                            </b:switch>
+
+                                            <data:label.name.escaped />
+                                        </a>
+                                    </b:loop>
+                                </div>
+                            </b:includable>
+                        </b:widget>
+                    </b:section>
+                    <!-- home page end -->
+
+                    <!-- index page start -->
+                    <b:section class="main" id="main-top-index" showaddelement="yes" cond="data:blog.pageType != &quot;archive&quot; and data:blog.pageType != &quot;item&quot; and data:blog.pageType != &quot;static_page&quot; and data:blog.url != data:blog.homepageUrl and data:blog.searchQuery == &quot;&quot; and data:blog.searchLabel == &quot;&quot;" />
+                    <!-- index page end -->
+
+                    <!-- search page start -->
+                    <b:section class="main" id="main-top-search" showaddelement="yes" cond="data:blog.searchQuery" />
+                    <!-- search page end -->
+
+                    <!-- label page start -->
+                    <b:section class="main" id="main-top-label" showaddelement="yes" cond="data:blog.searchLabel" />
+                    <!-- label page end -->
+                    <!-- page specific content end -->
+                </div>
+
+                <main class="col-md-8 order-md-2">
+                    <b:section class="main" id="main-all" showaddelement="yes">
+                        <b:widget id="Blog1" locked="false" type="Blog">
+                            <b:includable id="main" var="widget">
+                                <section class="mb-4">
+                                    <b:include name="heading" data="widget" />
+
+                                    <b:if cond="data:blog.pageType == &quot;item&quot; or data:blog.pageType == &quot;static_page&quot;">
+                                        <b:loop var="post" values="data:widget.posts">
+                                            <b:include name="item" data="post" />
+                                        </b:loop>
+                                    <b:else />
+                                        <div class="form-row align-items-end">
+                                            <b:loop var="post" values="data:widget.posts">
+                                                <b:include name="content" data="post" />
+                                            </b:loop>
+                                        </div>
+
+                                        <b:include name="pagination" data="widget" />
+                                    </b:if>
+                                </section>
+                            </b:includable>
+
+                            <b:includable id="heading" var="widget">
+                                <!-- page specific heading start -->
+                                <b:switch var="data:blog.pageType">
+                                    <b:case value="archive" />
+                                        <!-- archive page start -->
+                                        <h1 class="text-danger pg-heading h5"><data:blog.pageName.escaped /></h1>
+                                        <!-- archive page end -->
+
+                                    <b:case value="item" />
+                                        <!-- item page start -->
+                                        <h1 class="h3"><data:blog.pageName.escaped /></h1>
+                                        <!-- item page end -->
+
+                                    <b:case value="static_page" />
+                                        <!-- static page start -->
+                                        <h1 class="h3"><data:blog.pageName.escaped /></h1>
+                                        <!-- static page end -->
+
+                                    <b:default />
+                                        <b:if cond="data:blog.url == data:blog.homepageUrl">
+                                            <!-- home page start -->
+                                            <h1 class="text-danger pg-heading h5">Latest Posts</h1>
+                                            <!-- home page end -->
+
+                                        <b:elseif cond="data:blog.searchQuery == &quot;&quot; and data:blog.searchLabel == &quot;&quot;" />
+                                            <!-- index page start -->
+                                            <h1 class="text-danger pg-heading h5">Latest Posts</h1>
+                                            <!-- index page end -->
+                                        </b:if>
+
+                                        <b:if cond="data:blog.searchQuery">
+                                            <!-- search page start -->
+                                            <h1 class="text-danger pg-heading h5"><data:blog.searchQuery.escaped /></h1>
+                                            <!-- search page end -->
+                                        </b:if>
+
+                                        <b:if cond="data:blog.searchLabel">
+                                            <!-- label page start -->
+                                            <h1 class="text-danger pg-heading h5"><data:blog.pageName.escaped /></h1>
+                                            <!-- label page end -->
+                                        </b:if>
+                                </b:switch>
+                                <!-- page specific heading end -->
+                            </b:includable>
+
+                            <b:includable id="content" var="post">
+                                <article class="col-sm-6 mb-3">
+                                    <div class="card overflow-hidden">
+                                        <figure class="mb-0 position-relative">
+                                            <b:if cond="data:post.featuredImage">
+                                                <img alt="" class="card-img-top" expr:src="resizeImage(data:post.featuredImage, 720, &quot;720:432&quot;)" />
+                                            <b:else />
+                                                <img alt="" class="card-img-top" src="https://dummyimage.com/720x432/f2f2f2/343434.jpg?text=No+Image" />
+                                            </b:if>
+
+                                            <b:if cond="data:post.labels">
+                                                <div class="position-absolute pg-badge-right-bottom pl-2">
+                                                    <b:include name="labels" data="post" />
+                                                </div>
+                                            </b:if>
+                                        </figure>
+
+                                        <div class="card-body">
+                                            <header>
+                                                <div class="row small text-muted mb-2">
+                                                    <div class="col-8">
+                                                        <span class="far fa-clock" />
+                                                        <time expr:datetime="data:post.date.iso8601" expr:title="data:post.date.iso8601">
+                                                            <b:eval expr="data:post.date format &quot;MMM dd, y&quot;" />
+                                                        </time>
+                                                    </div>
+                                                    <div class="col-4 text-right text-danger">
+                                                        <span class="fas fa-comment" />
+                                                        <span><data:post.numberOfComments /></span>
+                                                    </div>
+                                                </div>
+
+                                                <h2 class="pg-heading-intro h5 card-title">
+                                                    <a class="text-body" expr:href="data:post.link ?: data:post.url">
+                                                        <data:post.title.escaped />
+                                                    </a>
+                                                </h2>
+                                            </header>
+
+                                            <p class="pg-desc-intro card-text">
+                                                <b:eval expr="snippet(data:post.body, { length: 150, links: false, linebreaks: false }).escaped" />
+                                            </p>
+                                        </div>
+                                    </div>
+                                </article>
+                            </b:includable>
+
+                            <b:includable id="labels" var="post">
+                                <b:loop index="i" values="data:post.labels" var="label">
+                                    <a class="badge p-2 mb-2 mr-1" expr:href="data:label.url + &quot;?max-results=6&quot;">
+                                        <b:switch var="(data:post.id + data:i) % 4">
+                                            <b:case value="0" />
+                                                <b:class name="badge-primary" cond="1" />
+
+                                            <b:case value="1" />
+                                                <b:class name="badge-success" cond="1" />
+
+                                            <b:case value="2" />
+                                                <b:class name="badge-danger" cond="1" />
+
+                                            <b:case value="3" />
+                                                <b:class name="badge-warning" cond="1" />
+
+                                            <b:default />
+                                                <b:class name="badge-secondary" cond="1" />
+                                        </b:switch>
+
+                                        <data:label.name.escaped />
+                                    </a>
+                                </b:loop>
+                            </b:includable>
+
+                            <b:includable id="pagination" var="widget">
+                                <b:if cond="data:widget.newerPageUrl || data:widget.olderPageUrl">
+                                    <nav class="j-pagination">
+                                        <!-- page specific pagination start -->
+                                        <b:if cond="data:blog.url == data:blog.homepageUrl">
+                                            <!-- home page start -->
+                                            <b:attr name="data-page" value="home" />
+                                            <!-- home page end -->
+
+                                        <b:elseif cond="data:blog.searchQuery == &quot;&quot; and data:blog.searchLabel == &quot;&quot;" />
+                                            <!-- index page start -->
+                                            <b:attr name="data-page" value="index" />
+                                            <!-- index page end -->
+                                        </b:if>
+
+                                        <b:if cond="data:blog.searchLabel">
+                                            <!-- label page start -->
+                                            <b:attr name="data-page" value="label" />
+                                            <b:attr name="data-url" expr:value="data:blog.pageName.escaped" />
+                                            <!-- label page end -->
+                                        </b:if>
+                                        <!-- page specific pagination end -->
+
+                                        <ul class="pagination justify-content-between">
+                                            <li class="page-item">
+                                                <b:if cond="data:widget.newerPageUrl">
+                                                    <a class="page-link" expr:href="data:widget.newerPageUrl">
+                                                        <span>&#8592;</span> Newer
+                                                    </a>
+                                                </b:if>
+                                            </li>
+
+                                            <li class="page-item">
+                                                <b:if cond="data:widget.olderPageUrl">
+                                                    <a class="page-link" expr:href="data:widget.olderPageUrl">
+                                                        Older <span>&#8594;</span>
+                                                    </a>
+                                                </b:if>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </b:if>
+                            </b:includable>
+
+                            <b:includable id="item" var="post">
+                                <b:if cond="data:blog.pageType == &quot;item&quot;">
+                                    <div class="row small text-muted mb-2">
+                                        <div class="col-8">
+                                            <span class="far fa-clock"></span>
+                                            <time expr:datetime="data:post.date.iso8601" expr:title="data:post.date.iso8601" class="mr-3">
+                                                <b:eval expr="data:post.date format &quot;MMM dd, y&quot;" />
+                                            </time>
+
+                                            <span class="fas fa-user"></span>
+                                            <b:if cond="data:post.authorProfileUrl">
+                                                <a expr:href="data:post.authorProfileUrl" rel="author" class="text-body">
+                                                    <data:post.author.name.escaped />
+                                                </a>
+                                            <b:else />
+                                                <data:post.author.name.escaped />
+                                            </b:if>
+                                        </div>
+                                        <div class="col-4 text-right text-danger">
+                                            <span class="fas fa-comment"></span>
+                                            <span><data:post.numberOfComments /></span>
+                                        </div>
+                                    </div>
+                                </b:if>
+
+                                <div class="mb-3 j-item"><data:post.body /></div>
+
+                                <b:if cond="data:blog.pageType == &quot;item&quot;">
+                                    <b:if cond="data:post.labels">
+                                        <p>
+                                            Tags:
+                                            <b:include name="labels" data="post" />
+                                        </p>
+                                    </b:if>
+
+                                    <b:include name="share" />
+
+                                    <b:include name="comments" data="post" />
+                                </b:if>
+
+                                <b:include name="item-script" />
+                            </b:includable>
+
+                            <b:includable id="share">
+                                <div class="sharethis-inline-share-buttons mb-4"></div> 
+
+                                <script async type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=000000000000000000000000&amp;product=inline-share-buttons"></script>
+                            </b:includable>
+
+                            <b:includable id="comments" var="post">
+                                <b:if cond="data:post.allowComments">
+                                    <div class="mb-3">
+                                        <b:include name="comments-form" data="post" />
+                                    </div>
+                                </b:if>
+
+                                <b:if cond="data:post.comments">
+                                    <section class="card">
+                                        <div class="card-header">
+                                            <h2 class="h5 mb-0">
+                                                <data:post.comments.length />
+                                                Comments
+                                            </h2>
+                                        </div>
+
+                                        <div class="card-body pb-0">
+                                            <b:loop index="i" var="comment" values="data:post.comments">
+                                                <article>
+                                                    <b:class name="border-bottom mb-3" cond="data:i + 1 != data:post.comments.length" />
+
+                                                    <div class="row mb-2">
+                                                        <div class="col-6">
+                                                            <h3 class="h6 mb-0">
+                                                                <data:comment.author.escaped />
+                                                            </h3>
+                                                        </div>
+                                                        <div class="col-6 text-right small text-muted">
+                                                            <data:comment.timestamp />
+                                                        </div>
+                                                    </div>
+                                                    <p>
+                                                        <data:comment.body.escaped />
+                                                    </p>
+                                                </article>
+                                            </b:loop>
+                                        </div>
+                                    </section>
+                                </b:if>
+                            </b:includable>
+
+                            <b:includable id="comments-form" var="post">
+                                <a expr:href="data:post.commentFormIframeSrc" id="comment-editor-src" />
+
+                                <iframe allowtransparency="allowtransparency" class="blogger-iframe-colorize blogger-comment-from-post" frameborder="0" id="comment-editor" name="comment-editor" width="100%" />
+
+                                <data:post.cmtfpIframe />
+
+                                <script type="text/javascript">
+                                    BLOG_CMT_createIframe(
+                                        "<data:post.appRpcRelayPath/>"
+                                    );
+                                </script>
+                            </b:includable>
+
+                            <b:includable id="item-script">
+                                <script type="text/javascript">
+                                // <![CDATA[
+                                    (() => {
+                                        "use strict";
+
+                                        let $;
+
+                                        function initItem() {
+                                            const elm = $(".j-item");
+
+                                            $("img", elm).addClass("img-fluid");
+                                            $("iframe", elm).addClass("embed-responsive");
+                                        }
+
+                                        function init() {
+                                            $ = jQuery;
+                                            initItem();
+                                        }
+
+                                        (window._jq = window._jq || []).push(init);
+                                    })();
+                                // ]]>
+                                </script>
+                            </b:includable>
+                        </b:widget>
+                    </b:section>
+
+                    <!-- page specific content start -->
+                    <!-- archive page start -->
+                    <b:section class="main" id="main-archive" showaddelement="yes" cond="data:blog.pageType == &quot;archive&quot;" />
+                    <!-- archive page end -->
+
+                    <!-- item page start -->
+                    <b:section class="main" id="main-item" showaddelement="yes" cond="data:blog.pageType == &quot;item&quot;" />
+                    <!-- item page end -->
+
+                    <!-- static page start -->
+                    <b:section class="main" id="main-static" showaddelement="yes" cond="data:blog.pageType == &quot;static_page&quot;" />
+                    <!-- static page end -->
+
+                    <!-- home page start -->
+                    <b:section class="main" id="main-home" showaddelement="yes" cond="data:blog.url == data:blog.homepageUrl">
+                        <b:widget id="TextList1" locked="false" type="TextList">
+                            <b:includable id="main" var="widget">
+                                <b:loop index="i" var="item" values="data:widget.items">
+                                    <section class="mb-4">
+                                        <h2 class="pg-heading h5">
+                                            <data:item.escaped />
+
+                                            <b:switch var="data:i % 4">
+                                                <b:case value="0" />
+                                                    <b:class name="text-primary" cond="1" />
+
+                                                <b:case value="1" />
+                                                    <b:class name="text-success" cond="1" />
+
+                                                <b:case value="2" />
+                                                    <b:class name="text-danger" cond="1" />
+
+                                                <b:case value="3" />
+                                                    <b:class name="text-warning" cond="1" />
+
+                                                <b:default />
+                                                    <b:class name="text-secondary" cond="1" />
+                                            </b:switch>
+                                        </h2>
+
+                                        <div class="form-row align-items-end">
+                                            <div class="col-12 text-center mt-3 j-recent-items" data-column="2" expr:data-category="data:item.escaped">
+                                                <div class="spinner-border text-secondary mb-3"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="j-pagination" data-page="label" expr:data-url="data:item.escaped"></div>
+                                    </section>
+                                </b:loop>
+                            </b:includable>
+                        </b:widget>
+                    </b:section>
+                    <!-- home page end -->
+
+                    <!-- index page start -->
+                    <b:section class="main" id="main-index" showaddelement="yes" cond="data:blog.pageType != &quot;archive&quot; and data:blog.pageType != &quot;item&quot; and data:blog.pageType != &quot;static_page&quot; and data:blog.url != data:blog.homepageUrl and data:blog.searchQuery == &quot;&quot; and data:blog.searchLabel == &quot;&quot;" />
+                    <!-- index page end -->
+
+                    <!-- search page start -->
+                    <b:section class="main" id="main-search" showaddelement="yes" cond="data:blog.searchQuery" />
+                    <!-- search page end -->
+
+                    <!-- label page start -->
+                    <b:section class="main" id="main-label" showaddelement="yes" cond="data:blog.searchLabel" />
+                    <!-- label page end -->
+                    <!-- page specific content end -->
+                </main>
+
+                <div class="col-md-12 order-md-4">
+                    <!-- page specific content start -->
+                    <!-- archive page start -->
+                    <b:section class="main" id="main-bottom-archive" showaddelement="yes" cond="data:blog.pageType == &quot;archive&quot;" />
+                    <!-- archive page end -->
+
+                    <!-- item page start -->
+                    <b:section class="main" id="main-bottom-item" showaddelement="yes" cond="data:blog.pageType == &quot;item&quot;" />
+                    <!-- item page end -->
+
+                    <!-- static page start -->
+                    <b:section class="main" id="main-bottom-static" showaddelement="yes" cond="data:blog.pageType == &quot;static_page&quot;" />
+                    <!-- static page end -->
+
+                    <!-- home page start -->
+                    <b:section class="main" id="main-bottom-home" showaddelement="yes" cond="data:blog.url == data:blog.homepageUrl">
+                        <b:widget id="TextList2" locked="false" type="TextList">
+                            <b:includable id="main" var="widget">
+                                <b:loop index="i" var="item" values="data:widget.items">
+                                    <section class="mb-4">
+                                        <h2 class="pg-heading h5">
+                                            <data:item.escaped />
+
+                                            <b:switch var="data:i % 4">
+                                                <b:case value="0" />
+                                                    <b:class name="text-primary" cond="1" />
+
+                                                <b:case value="1" />
+                                                    <b:class name="text-success" cond="1" />
+
+                                                <b:case value="2" />
+                                                    <b:class name="text-danger" cond="1" />
+
+                                                <b:case value="3" />
+                                                    <b:class name="text-warning" cond="1" />
+
+                                                <b:default />
+                                                    <b:class name="text-secondary" cond="1" />
+                                            </b:switch>
+                                        </h2>
+
+                                        <div class="form-row align-items-end">
+                                            <div class="col-12 text-center mt-3 j-recent-items" data-column="3" expr:data-category="data:item.escaped">
+                                                <div class="spinner-border text-secondary mb-3"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="j-pagination" data-page="label" expr:data-url="data:item.escaped"></div>
+                                    </section>
+                                </b:loop>
+                            </b:includable>
+                        </b:widget>
+                    </b:section>
+                    <!-- home page end -->
+
+                    <!-- index page start -->
+                    <b:section class="main" id="main-bottom-index" showaddelement="yes" cond="data:blog.pageType != &quot;archive&quot; and data:blog.pageType != &quot;item&quot; and data:blog.pageType != &quot;static_page&quot; and data:blog.url != data:blog.homepageUrl and data:blog.searchQuery == &quot;&quot; and data:blog.searchLabel == &quot;&quot;" />
+                    <!-- index page end -->
+
+                    <!-- search page start -->
+                    <b:section class="main" id="main-bottom-search" showaddelement="yes" cond="data:blog.searchQuery" />
+                    <!-- search page end -->
+
+                    <!-- label page start -->
+                    <b:section class="main" id="main-bottom-label" showaddelement="yes" cond="data:blog.searchLabel" />
+                    <!-- label page end -->
+                    <!-- page specific content end -->
+                </div>
+
+                <aside class="col-md-4 order-md-3">
+                    <!-- page specific sidebar start -->
+                    <!-- archive page start -->
+                    <b:section class="sidebar" id="sidebar-archive" showaddelement="yes" cond="data:blog.pageType == &quot;archive&quot;" />
+                    <!-- archive page end -->
+
+                    <!-- item page start -->
+                    <b:section class="sidebar" id="sidebar-item" showaddelement="yes" cond="data:blog.pageType == &quot;item&quot;" />
+                    <!-- item page end -->
+
+                    <!-- static page start -->
+                    <b:section class="sidebar" id="sidebar-static" showaddelement="yes" cond="data:blog.pageType == &quot;static_page&quot;" />
+                    <!-- static page end -->
+
+                    <!-- home page start -->
+                    <b:section class="sidebar" id="sidebar-home" showaddelement="yes" cond="data:blog.url == data:blog.homepageUrl" />
+                    <!-- home page end -->
+
+                    <!-- index page start -->
+                    <b:section class="sidebar" id="sidebar-index" showaddelement="yes" cond="data:blog.pageType != &quot;archive&quot; and data:blog.pageType != &quot;item&quot; and data:blog.pageType != &quot;static_page&quot; and data:blog.url != data:blog.homepageUrl and data:blog.searchQuery == &quot;&quot; and data:blog.searchLabel == &quot;&quot;" />
+                    <!-- index page end -->
+
+                    <!-- search page start -->
+                    <b:section class="sidebar" id="sidebar-search" showaddelement="yes" cond="data:blog.searchQuery" />
+                    <!-- search page end -->
+
+                    <!-- label page start -->
+                    <b:section class="sidebar" id="sidebar-label" showaddelement="yes" cond="data:blog.searchLabel" />
+                    <!-- label page end -->
+                    <!-- page specific sidebar end -->
+
+                    <b:section class="sidebar" id="sidebar-all" showaddelement="yes">
+                        <b:widget id="PopularPosts2" locked="false" type="PopularPosts">
+                            <b:includable id="main" var="widget">
+                                <section class="mb-4">
+                                    <b:if cond="data:widget.title">
+                                        <h2 class="text-primary pg-heading h5">
+                                            <data:widget.title.escaped />
+                                        </h2>
+                                    </b:if>
+
+                                    <b:loop var="post" values="data:widget.posts">
+                                        <b:include name="content" data="post" />
+                                    </b:loop>
+                                </section>
+                            </b:includable>
+
+                            <b:includable id="content" var="post">
+                                <article class="mb-3 form-row">
+                                    <div class="col-4">
+                                        <figure class="mb-0">
+                                            <b:if cond="data:post.featuredImage">
+                                                <img alt="" class="img-fluid" expr:src="resizeImage(data:post.featuredImage, 220, &quot;220:132&quot;)" />
+                                            <b:else />
+                                                <img alt="" class="img-fluid" src="https://dummyimage.com/220x132/f2f2f2/343434.jpg?text=No+Image" />
+                                            </b:if>
+                                        </figure>
+                                    </div>
+
+                                    <div class="col-8">
+                                        <h3 class="pg-heading-intro h6">
+                                            <a class="text-body" expr:href="data:post.link ?: data:post.url">
+                                                <data:post.title.escaped />
+                                            </a>
+                                        </h3>
+
+                                        <div class="row small text-muted mb-2">
+                                            <div class="col-8">
+                                                <span class="far fa-clock" />
+                                                <time expr:datetime="data:post.date.iso8601" expr:title="data:post.date.iso8601">
+                                                    <b:eval expr="data:post.date format &quot;MMM dd, y&quot;" />
+                                                </time>
+                                            </div>
+                                            <div class="col-4 text-right text-danger">
+                                                <span class="fas fa-comment" />
+                                                <span><data:post.numberOfComments /></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </b:includable>
+                        </b:widget>
+
+                        <b:widget id="Label1" locked="false" type="Label">
+                            <b:includable id="main" var="widget">
+                                <section class="mb-4">
+                                    <b:if cond="data:widget.title">
+                                        <h2 class="text-success pg-heading h5">
+                                            <data:widget.title.escaped />
+                                        </h2>
+                                    </b:if>
+
+                                    <ul class="list-unstyled fa-ul">
+                                        <b:loop var="label" values="data:widget.labels">
+                                            <li class="mb-2">
+                                                <span class="fa-li">
+                                                    <span class="fas fa-chevron-right" />
+                                                </span>
+                                                <a class="text-body" expr:href="data:label.url">
+                                                    <data:label.name.escaped />
+                                                </a>
+                                            </li>
+                                        </b:loop>
+                                    </ul>
+                                </section>
+                            </b:includable>
+                        </b:widget>
+
+                        <b:widget id="Image4" locked="false" type="Image">
+                            <b:includable id="main" var="widget">
+                                <section class="mb-4">
+                                    <b:if cond="data:widget.title">
+                                        <h2 class="text-info pg-heading h5">
+                                            <data:widget.title.escaped />
+                                        </h2>
+                                    </b:if>
+
+                                    <div class="text-center">
+                                        <b:if cond="data:widget.link">
+                                            <a expr:href="data:widget.link" rel="nofollow">
+                                                <img  expr:alt="data:widget.caption.escaped" class="img-fluid" expr:src="data:widget.sourceUrl" />
+                                            </a>
+                                        <b:else />
+                                            <img  expr:alt="data:widget.caption.escaped" class="img-fluid" expr:src="data:widget.sourceUrl" />
+                                        </b:if>
+                                    </div>
+                                </section>
+                            </b:includable>
+                        </b:widget>
+
+                        <b:widget id="Image5" locked="false" type="Image">
+                            <b:includable id="main" var="widget">
+                                <section class="mb-4">
+                                    <b:if cond="data:widget.title">
+                                        <h2 class="text-info pg-heading h5">
+                                            <data:widget.title.escaped />
+                                        </h2>
+                                    </b:if>
+
+                                    <div class="text-center">
+                                        <b:if cond="data:widget.link">
+                                            <a expr:href="data:widget.link" rel="nofollow">
+                                                <img  expr:alt="data:widget.caption.escaped" class="img-fluid" expr:src="data:widget.sourceUrl" />
+                                            </a>
+                                        <b:else />
+                                            <img  expr:alt="data:widget.caption.escaped" class="img-fluid" expr:src="data:widget.sourceUrl" />
+                                        </b:if>
+                                    </div>
+                                </section>
+                            </b:includable>
+                        </b:widget>
+
+                        <b:widget id="Image6" locked="false" type="Image">
+                            <b:includable id="main" var="widget">
+                                <section class="mb-4">
+                                    <b:if cond="data:widget.title">
+                                        <h2 class="text-info pg-heading h5">
+                                            <data:widget.title.escaped />
+                                        </h2>
+                                    </b:if>
+
+                                    <div class="text-center">
+                                        <b:if cond="data:widget.link">
+                                            <a expr:href="data:widget.link" rel="nofollow">
+                                                <img  expr:alt="data:widget.caption.escaped" class="img-fluid" expr:src="data:widget.sourceUrl" />
+                                            </a>
+                                        <b:else />
+                                            <img  expr:alt="data:widget.caption.escaped" class="img-fluid" expr:src="data:widget.sourceUrl" />
+                                        </b:if>
+                                    </div>
+                                </section>
+                            </b:includable>
+                        </b:widget>
+
+                        <b:widget id="Image7" locked="false" type="Image">
+                            <b:includable id="main" var="widget">
+                                <section class="mb-4">
+                                    <b:if cond="data:widget.title">
+                                        <h2 class="text-info pg-heading h5">
+                                            <data:widget.title.escaped />
+                                        </h2>
+                                    </b:if>
+
+                                    <div class="text-center">
+                                        <b:if cond="data:widget.link">
+                                            <a expr:href="data:widget.link" rel="nofollow">
+                                                <img  expr:alt="data:widget.caption.escaped" class="img-fluid" expr:src="data:widget.sourceUrl" />
+                                            </a>
+                                        <b:else />
+                                            <img  expr:alt="data:widget.caption.escaped" class="img-fluid" expr:src="data:widget.sourceUrl" />
+                                        </b:if>
+                                    </div>
+                                </section>
+                            </b:includable>
+                        </b:widget>
+
+                        <b:widget id="LinkList1" locked="false" type="LinkList">
+                            <b:includable id="main" var="widget">
+                                <section class="mb-4">
+                                    <b:if cond="data:widget.title">
+                                        <h2 class="text-danger pg-heading h5">
+                                            <data:widget.title.escaped />
+                                        </h2>
+                                    </b:if>
+
+                                    <ul class="list-unstyled fa-ul">
+                                        <b:loop var="link" values="data:widget.links">
+                                            <li class="mb-2">
+                                                <span class="fa-li">
+                                                    <span class="fas fa-chevron-right" />
+                                                </span>
+                                                <a class="text-body" expr:href="data:link.target">
+                                                    <data:link.name.escaped />
+                                                </a>
+                                            </li>
+                                        </b:loop>
+                                    </ul>
+                                </section>
+                            </b:includable>
+                        </b:widget>
+
+                        <b:widget id="TextList3" locked="false" type="TextList">
+                            <b:includable id="main" var="widget">
+                                <section class="mb-4">
+                                    <b:if cond="data:widget.title">
+                                        <h2 class="text-primary pg-heading h5">
+                                            <data:widget.title.escaped />
+                                        </h2>
+                                    </b:if>
+
+                                    <ul>
+                                        <b:loop var="item" values="data:widget.items">
+                                            <li class="mb-2">
+                                                <data:item.escaped />
+                                            </li>
+                                        </b:loop>
+                                    </ul>
+                                </section>
+                            </b:includable>
+                        </b:widget>
+
+                        <b:widget id="Text1" locked="false" type="Text">
+                            <b:includable id="main" var="widget">
+                                <section class="mb-4">
+                                    <b:if cond="data:widget.title">
+                                        <h2 class="text-warning pg-heading h5">
+                                            <data:widget.title.escaped />
+                                        </h2>
+                                    </b:if>
+
+                                    <div>
+                                        <data:widget.content />
+                                    </div>
+                                </section>
+                            </b:includable>
+                        </b:widget>
+                    </b:section>
+                </aside>
+            </div>
+        </div>
+    <b:else />
+        <!-- error page content start -->
+        <main class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-sm-9 col-md-7 col-lg-5 text-center">
+                    <p class="h4">Sorry, the page you were looking for in this blog does not exist.</p>
+                </div>
+            </div>
+        </main>
+        <!-- error page content end -->
+    </b:if>
+
+    <!-- footer content start -->
+    <footer class="bg-dark text-white-50">
+        <div class="container py-3">
+            <div class="row">
+                <div class="col-sm-6 mb-2 mb-sm-0">
+                    <b:section class="footer" id="copyright-all" showaddelement="no">
+                        <b:widget id="Text2" locked="true" type="Text">
+                            <b:includable id="main" var="widget">
+                                <data:widget.content.escaped />
+                            </b:includable>
+                        </b:widget>
+                    </b:section>
+                </div>
+                <div class="col-sm-6">
+                    <div class="small text-sm-right">
+                        Developed and maintained by
+                        <a href="https://www.rindiar.in/">
+                            <img alt="rindiar" class="img-fluid" src="https://www.rindiar.in/images/rindiar.png" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer content end -->
+
+    <template id="j-recent-items-frg">
+        <article class="col-sm-6 mb-3">
+            <div class="card overflow-hidden">
+                <figure class="mb-0 position-relative">
+                    <img alt="" class="card-img-top" />
+                    <div class="position-absolute pg-badge-right-bottom pl-2">
+                        <a class="badge p-2 mb-2 mr-1"></a>
+                    </div>
+                </figure>
+
+                <div class="card-body">
+                    <header>
+                        <div class="row small text-muted mb-2">
+                            <div class="col-8">
+                                <span class="far fa-clock"></span>
+                                <time></time>
+                            </div>
+                            <div class="col-4 text-right text-danger">
+                                <span class="fas fa-comment"></span>
+                                <span></span>
+                            </div>
+                        </div>
+
+                        <h2 class="pg-heading-intro h5 card-title">
+                            <a class="text-body"></a>
+                        </h2>
+                    </header>
+
+                    <p class="pg-desc-intro card-text"></p>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <!-- inline script start -->
+    <script type="text/javascript">
+    // <![CDATA[
+        (() => {
+            "use strict";
+
+            let $, oitemFrg, months, colors;
+
+            function getProperty(object, key, defaultValue) {
+                for (const k of key.split(".")) {
+                    if (k in object) {
+                        object = object[k];
+                    } else {
+                        object = defaultValue;
+                        break;
+                    }
+                }
+
+                return object;
+            }
+
+            function getDateStamp(tstamp) {
+                const date = new Date(tstamp);
+
+                let dateStamp = months[date.getMonth()];
+                dateStamp += " ";
+                dateStamp += date.getDate();
+                dateStamp += ", ";
+                dateStamp += date.getFullYear();
+
+                return dateStamp;
+            }
+
+            function getItemFrg(item, columnCount) {
+                const itemFrg = oitemFrg.clone(),
+                categoryElm = $(".pg-badge-right-bottom", itemFrg),
+                categoryFrg = categoryElm.children()[0].cloneNode(true);
+
+                if (columnCount === 3) {
+                    itemFrg.addClass("col-md-4");
+                }
+
+                $("img", itemFrg).attr("src", item.image);
+
+                if (item.categories.length) {
+                    categoryElm.children().remove();
+
+                    for (const category of item.categories) {
+                        const colorIndex = Math.ceil(Math.random() * 100) % colors.length;
+
+                        categoryElm.append(
+                            $(categoryFrg.cloneNode(true))
+                                .attr("href", "search/label/" + encodeURI(category) + "?max-results=6")
+                                .text(category)
+                                .addClass(colors[colorIndex])
+                        )
+                    }
+                } else {
+                    categoryElm.remove();
+                }
+
+                $("time", itemFrg)
+                    .attr("datetime", item.published)
+                    .attr("title", item.published)
+                    .text(getDateStamp(item.published));
+
+                $(".fa-comment").next().text(item.comments)
+
+                $(".card-title a", itemFrg)
+                    .attr("href", item.link)
+                    .text(item.title);
+
+                $(".card-text", itemFrg).text(item.summary);
+
+                return itemFrg;
+            }
+
+            function loadItems(items, itemElm) {
+                const frgs = $(document.createDocumentFragment()),
+                parentElm = itemElm.parent(),
+                columnCount = Number(itemElm.attr("data-column"));
+
+                for (const item of items) {
+                    frgs.append(
+                        getItemFrg(item, columnCount)
+                    );
+                }
+
+                parentElm.addClass("d-none").append(frgs);
+                itemElm.remove();
+                parentElm.removeClass("d-none");
+            }
+
+            function getComments(links) {
+                const link = links.filter(e => e.rel === "replies" && e.type === "text/html");
+
+                return link.length ? parseInt(link[0].title) : 0;
+            }
+
+            function createThumb(url) {
+                if (!url) {
+                    return "https://dummyimage.com/720x432/f2f2f2/343434.jpg?text=No+Image";
+                }
+
+                if (url.indexOf("blogspot.com") < 0
+                    && url.indexOf("googleusercontent.com") < 0
+                ) {
+                    return url;
+                }
+
+                const thumb = url.split("/");
+
+                thumb[thumb.length - 2] = "w720-h432-p-k-no-nu";
+
+                return thumb.join("/");
+            }
+
+            function getLink(links) {
+                const link = links.filter(e => e.rel === "alternate");
+
+                return link.length ? link[0].href : "";
+            }
+
+            function updateItems(items, itemElm) {
+                const fitems = [];
+
+                for (const item of items) {
+                    fitems.push({
+                        title: getProperty(item, "title.$t", ""),
+                        link: getLink(getProperty(item, "link", [])),
+                        image: createThumb(getProperty(item, "media$thumbnail.url", "")),
+                        categories: getProperty(item, "category", []).map(e => e.term),
+                        published: getProperty(item, "updated.$t", ""),
+                        summary: getProperty(item, "summary.$t", ""),
+                        comments: getComments(getProperty(item, "link", []))
+                    });
+                }
+
+                loadItems(fitems, itemElm);
+            }
+
+            function createCallback(callbackID, itemElm) {
+                window[callbackID] = (rdata) => {
+                    delete window[callbackID];
+
+                    if (!rdata || !rdata.feed || !rdata.feed.entry) {
+                        itemElm.text("No items found");
+                        return;
+                    }
+
+                    updateItems(rdata.feed.entry, itemElm);
+                };
+            }
+
+            function getUrl(callbackID, category) {
+                let url = "feeds/posts/default?alt=json-in-script&max-results=6&orderby=published&callback=" + callbackID;
+
+                if (category) {
+                    url += "&category=" + category;
+                }
+
+                return url;
+            }
+
+            function getCallbackID() {
+                const callbackID = "__callback" + Math.ceil(Math.random() * 100000000);
+
+                return callbackID;
+            }
+
+            function getItems(itemElm) {
+                const script = document.createElement("script"),
+                callbackID = getCallbackID(),
+                category = encodeURIComponent(
+                    itemElm.attr("data-category")
+                );
+
+                script.async = true;
+                script.src = getUrl(callbackID, category);
+
+                createCallback(callbackID, itemElm);
+
+                document.body.appendChild(script);
+            }
+
+            function getRecentItems() {
+                for (const elm of $(".j-recent-items").toArray()) {
+                    getItems($(elm));
+                }
+            }
+
+            function initConfig() {
+                oitemFrg = $($("#j-recent-items-frg").prop("content")).children();
+
+                months = [
+                    "Jan",
+                    "Feb",
+                    "Mar",
+                    "Apr",
+                    "May",
+                    "Jun",
+                    "Jul",
+                    "Aug",
+                    "Sep",
+                    "Oct",
+                    "Nov",
+                    "Dec"
+                ];
+
+                colors = [
+                    "badge-primary",
+                    "badge-success",
+                    "badge-danger",
+                    "badge-warning"
+                ];
+            }
+
+            function init() {
+                $ = jQuery;
+
+                initConfig();
+                getRecentItems();
+            }
+
+            (window._jq = window._jq || []).push(init);
+        })();
+    // ]]>
+    </script>
+
+    <script type="text/javascript">
+    // <![CDATA[
+        (() => {
+            "use strict";
+
+            let $;
+
+            class PaginationFrg {
+                static getBtnFrg() {
+                    const btnFrg = document.createElement("a");
+
+                    btnFrg.setAttribute("class", "page-link");
+
+                    return btnFrg;
+                }
+
+                static getItemFrg(page, isActive, paginationUrl) {
+                    const listFrg = this.listElm.cloneNode(true),
+                    btnFrg = this.btnElm.cloneNode(true);
+
+                    btnFrg.textContent = String(page);
+                    btnFrg.href = paginationUrl;
+
+                    listFrg.appendChild(btnFrg);
+
+                    if (isActive) {
+                        listFrg.classList.add("active");
+                    }
+
+                    return listFrg;
+                }
+
+                static getListFrg() {
+                    const listFrg = document.createElement("li");
+
+                    listFrg.setAttribute("class", "page-item mb-2");
+
+                    return listFrg;
+                }
+
+                static getUlFrg() {
+                    const ulFrg = document.createElement("ul");
+
+                    ulFrg.setAttribute("class", "pagination flex-wrap flex-md-nowrap mb-0");
+
+                    return ulFrg;
+                }
+
+                static get(totalPage, currentPage, paginationLinks) {
+                    const frg = this.ulElm.cloneNode(true),
+                    sideLinksCount = 2,
+                    totalLinks = sideLinksCount * 2;
+
+                    let paginationStart = 1,
+                    paginationEnd;
+
+                    if (currentPage > sideLinksCount) {
+                        paginationStart = currentPage - sideLinksCount;
+                    }
+
+                    paginationEnd = paginationStart + totalLinks;
+
+                    if (paginationEnd > totalPage) {
+                        paginationStart -= paginationEnd - totalPage;
+
+                        if (paginationStart < 1) {
+                            paginationStart = 1;
+                        }
+
+                        paginationEnd = totalPage;
+                    }
+
+                    if (currentPage > 2) {
+                        frg.appendChild(
+                            this.getItemFrg(
+                                "Start",
+                                false,
+                                paginationLinks[0]
+                            )
+                        );
+                    }
+
+                    if (currentPage > 1) {
+                        frg.appendChild(
+                            this.getItemFrg(
+                                "Previous",
+                                false,
+                                paginationLinks[currentPage - 1]
+                            )
+                        );
+                    }
+
+                    paginationStart -= 1;
+
+                    while (++paginationStart <= paginationEnd) {
+                        frg.appendChild(
+                            this.getItemFrg(
+                                paginationStart,
+                                paginationStart === currentPage,
+                                paginationLinks[paginationStart - 1]
+                            )
+                        );
+                    }
+
+                    if (currentPage < totalPage) {
+                        frg.appendChild(
+                            this.getItemFrg(
+                                "Next",
+                                false,
+                                paginationLinks[currentPage]
+                            )
+                        );
+                    }
+
+                    if (totalPage > totalLinks + 1 && currentPage + 1 < totalPage) {
+                        frg.appendChild(
+                            this.getItemFrg(
+                                "End",
+                                false,
+                                paginationLinks[paginationLinks.length - 1]
+                            )
+                        );
+                    }
+
+                    return frg;
+                }
+
+                static init() {
+                    this.btnElm = this.getBtnFrg();
+                    this.listElm = this.getListFrg();
+                    this.ulElm = this.getUlFrg();
+                }
+            }
+
+            function getProperty(object, key, defaultValue) {
+                for (const k of key.split(".")) {
+                    if (k in object) {
+                        object = object[k];
+                    } else {
+                        object = defaultValue;
+                        break;
+                    }
+                }
+
+                return object;
+            }
+
+            function getCurrentPage(paginationOffset) {
+                let currentPage = 1,
+
+                offset = location.search
+                    .substr(1).split("&")
+                    .map(e => e.split("="))
+                    .filter(e => e[0] === "updated-max")
+                    .map(e => e[1]),
+
+                index = -1;
+
+                offset = offset[0] || "";
+
+                if (offset) {
+                    index = paginationOffset.indexOf(offset);
+                }
+
+                if (index < 0) {
+                    currentPage = 1;
+                } else {
+                    currentPage = index + 2;
+                }
+
+                return currentPage;
+            }
+
+            function getPaginationOffset(items, listCount, totalPage) {
+                const paginationLinks = [];
+
+                for (let i = 1; i < totalPage; i++) {
+                    const published = getProperty(items[i * listCount], "published.$t", "");
+
+                    paginationLinks.push(
+                        encodeURIComponent(
+                            published.substring(0, 19) + published.substring(23, 29)
+                        )
+                    );
+                }
+
+                return paginationLinks;
+            }
+
+            function getPaginationLinks(paginationOffset, listCount, label) {
+                const paginationLinks = [];
+                let paginationUrl = "search";
+
+                if (label) {
+                    paginationUrl += "/label/" + encodeURIComponent(label);
+                }
+
+                paginationUrl += "?max-results=" + listCount;
+                paginationUrl += "&orderby=published";
+
+                paginationLinks.push(paginationUrl);
+
+                paginationUrl += "&updated-max=";
+
+                for (const offset of paginationOffset) {
+                    paginationLinks.push(paginationUrl + offset);
+                }
+
+                return paginationLinks;
+            }
+
+            function updatePagination(items, paginationElm) {
+                const totalItems = items.length,
+                listCount = 6,
+                totalPage = Math.ceil(totalItems / listCount);
+
+                if (totalPage <= 1) {
+                    return;
+                }
+
+                const paginationOffset = getPaginationOffset(
+                    items,
+                    listCount,
+                    totalPage
+                ),
+                paginationLinks = getPaginationLinks(
+                    paginationOffset,
+                    listCount,
+                    paginationElm.attr("data-url")
+                ),
+                currentPage = getCurrentPage(paginationOffset);
+
+                PaginationFrg.init();
+
+                paginationElm.children().remove();
+                paginationElm.append(
+                    PaginationFrg.get(
+                        totalPage,
+                        currentPage,
+                        paginationLinks
+                    )
+                );
+            }
+
+            function createCallback(callbackID, paginationElm) {
+                window[callbackID] = (rdata) => {
+                    delete window[callbackID];
+
+                    if (!rdata || !rdata.feed || !rdata.feed.entry) {
+                        return;
+                    }
+
+                    updatePagination(rdata.feed.entry, paginationElm);
+                };
+            }
+
+            function getUrl(callbackID, label) {
+                let url = "feeds/posts/summary";
+
+                if (label) {
+                    url += "/-/" + encodeURIComponent(label);
+                }
+
+                url += "?alt=json-in-script&max-results=99999&orderby=published&callback=" + callbackID;
+
+                return url;
+            }
+
+            function getCallbackID() {
+                const callbackID = "__callback" + Math.ceil(Math.random() * 100000000);
+
+                return callbackID;
+            }
+
+            function getPagination(paginationElm) {
+                const script = document.createElement("script"),
+                callbackID = getCallbackID();
+
+                script.async = true;
+                script.src = getUrl(
+                    callbackID,
+                    paginationElm.attr("data-url")
+                );
+
+                createCallback(callbackID, paginationElm);
+
+                document.body.appendChild(script);
+            }
+
+            function initPagination() {
+                const pages = [
+                    "home",
+                    "index",
+                    "label"
+                ];
+
+                for (const elm of $(".j-pagination").toArray()) {
+                    if (pages.indexOf($(elm).attr("data-page")) > -1) {
+                        getPagination($(elm));
+                    }
+                }
+            }
+
+            function init() {
+                $ = jQuery;
+                initPagination();
+            }
+
+            (window._jq = window._jq || []).push(init);
+        })();
+    // ]]>
+    </script>
+
+    <script type="text/javascript">
+    // <![CDATA[
+        (() => {
+            "use strict";
+
+            let $;
+
+            function getProperty(object, key, defaultValue) {
+                for (const k of key.split(".")) {
+                    if (k in object) {
+                        object = object[k];
+                    } else {
+                        object = defaultValue;
+                        break;
+                    }
+                }
+
+                return object;
+            }
+
+            function updateItem(elm, item) {
+                elm.removeClass("marquee")
+                    .text(item.title)
+                    .attr("href", item.link);
+
+                setTimeout(() => {
+                    elm.addClass("marquee");
+                }, 60);
+            }
+
+            function loadItems(items) {
+                const elm = $(".j-breaking-news"),
+                count = items.length;
+
+                let i = 0;
+
+                elm.on("animationend", () => {
+                    i = (i + 1) % count;
+                    updateItem(elm, items[i]);
+                });
+
+                updateItem(elm, items[i]);
+            }
+
+            function getLink(links) {
+                const link = links.filter(e => e.rel === "alternate");
+
+                return link.length ? link[0].href : "";
+            }
+
+            function updateItems(items) {
+                const fitems = [];
+
+                for (const item of items) {
+                    fitems.push({
+                        title: getProperty(item, "title.$t", ""),
+                        link: getLink(getProperty(item, "link", []))
+                    });
+                }
+
+                loadItems(fitems);
+            }
+
+            function createCallback(callbackID) {
+                window[callbackID] = (rdata) => {
+                    delete window[callbackID];
+
+                    if (!rdata || !rdata.feed || !rdata.feed.entry) {
+                        return;
+                    }
+
+                    updateItems(rdata.feed.entry);
+                };
+            }
+
+            function getUrl(callbackID) {
+                let url = "feeds/posts/default?alt=json-in-script&max-results=5&orderby=published&callback=" + callbackID;
+
+                return url;
+            }
+
+            function getCallbackID() {
+                const callbackID = "__callback" + Math.ceil(Math.random() * 100000000);
+
+                return callbackID;
+            }
+
+            function getItems() {
+                const script = document.createElement("script"),
+                callbackID = getCallbackID();
+
+                script.async = true;
+                script.src = getUrl(callbackID);
+
+                createCallback(callbackID);
+
+                document.body.appendChild(script);
+            }
+
+            function init() {
+                $ = jQuery;
+                getItems();
+            }
+
+            (window._jq = window._jq || []).push(init);
+        })();
+    // ]]>
+    </script>
+
+    <script type="text/javascript">
+    // <![CDATA[
+        (() => {
+            "use strict";
+
+            let $;
+
+            function initSearch() {
+                $(".j-search-btn").on("click", () => {
+                    $(".j-search-input").toggleClass("d-none");
+                });
+            }
+
+            function init() {
+                $ = jQuery;
+                initSearch();
+            }
+
+            (window._jq = window._jq || []).push(init);
+        })();
+    // ]]>
+    </script>
+
+    <script type="text/javascript">
+    // <![CDATA[
+        (() => {
+            "use strict";
+
+            let $;
+
+            function segment(url) {
+                return url.replace(/\/$/, "").split("/");
+            }
+
+            function compareSegment(base, current) {
+                const l = current.length;
+                let i = -1,
+                match = false;
+
+                while (++i < l) {
+                    if (base[i] !== current[i]) {
+                        break;
+                    }
+
+                    if ((i + 1) >= l) {
+                        match = true;
+                        break;
+                    }
+                }
+
+                return match;
+            }
+
+            function setActiveMenu() {
+                const base = segment(location.href.replace(document.baseURI, ""));
+                let current;
+
+                for (const melm of $(".g-main-menu").toArray()) {
+                    for (const elm of $("> li > a", melm).toArray()) {
+                        current = $(elm).attr("href");
+
+                        if (compareSegment(base, segment(current))) {
+                            $(elm).addClass("active");
+                            return;
+                        }
+                    }
+                }
+            }
+
+            function initMenu() {
+                const inputFrg = $("<input class=\"g-menu-state\" type=\"checkbox\" />"),
+                labelFrg = $("<label class=\"g-menu-icon\"></label>");
+                let i = 1,
+                childElm,
+                id;
+
+                for (const elm of $(".g-sub-menu").toArray()) {
+                    childElm = $(elm).parent().children();
+                    id = "menu-state-" + i;
+                    i += 1;
+
+                    childElm.first().before(
+                        inputFrg.clone().attr("id", id)
+                    );
+
+                    childElm.last().after(
+                        labelFrg.clone().attr("for", id)
+                    );
+                }
+            }
+
+            function init() {
+                $ = jQuery;
+                setActiveMenu();
+                initMenu();
+            }
+
+            (window._jq = window._jq || []).push(init);
+        })();
+    // ]]>
+    </script>
+    <!-- inline script end -->
+
+    <!-- script start -->
+    <script class="j-acss" data-integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" data-src="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.13.0/css/all.min.css" type="text/x-async-css" />
+
+    <script class="j-ajs" data-integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" data-order="1" data-src="https://cdn.jsdelivr.net/gh/jquery/jquery@3.5.1/dist/jquery.min.js" type="text/x-async-js" />
+
+    <script async="async" crossorigin="anonymous" integrity="sha384-RelAh7Gi0XQjFoEpPqU9WbCQ9dYhQbhHJNMnAgk3iNMUyqlTaUJL1sz/nGorbF4R" src="https://cdn.jsdelivr.net/gh/krishnan57474/gaur@4.1.0/public/js/script.js" type="module"></script>
+    <!-- script end -->
+</body>
+</html>
