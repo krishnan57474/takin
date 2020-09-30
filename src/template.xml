@@ -8,6 +8,7 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <base expr:href="data:blog.canonicalHomepageUrl" />
     <link expr:href="data:blog.blogspotFaviconUrl" rel="shortcut icon" type="image/x-icon" />
+    <data:blog.feedLinks />
     <!-- meta for browsers end -->
 
     <!-- page specific meta start -->
@@ -161,7 +162,7 @@
 
     <!-- styles start -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&amp;display=swap" rel="stylesheet" />
-    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/twbs/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/twbs/bootstrap@4.5.2/dist/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet" />
 
     <style>
         html {
@@ -492,6 +493,93 @@
             }
         }
     </style>
+
+    <!-- page specific style start -->
+    <b:if cond="data:blog.pageType == &quot;item&quot;">
+        <!-- item page start -->
+        <style>
+            .post-item img {
+                max-width: 100%;
+            }
+
+            .comment-thread ol {
+                list-style: none;
+                margin: 0 auto;
+            }
+
+            .toplevel-thread > ol {
+                padding: 0;
+            }
+
+            .comment {
+                display: flex;
+                flex-flow: row wrap;
+            }
+
+            .comment > * {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            .comment .avatar-image-container {
+                flex: 0 0 50px;
+                max-width: 50px;
+            }
+
+            .comment .comment-block {
+                flex: 0 0 calc(100% - 50px);
+                max-width: calc(100% - 50px);
+            }
+
+            .comment img {
+                max-width: 100%;
+            }
+
+            .comment a {
+                color: inherit;
+                font-size: 0.9em;
+                text-decoration: underline;
+            }
+
+            .comment .comment-header::after {
+                content: "";
+                clear: both;
+                display: block;
+            }
+
+            .comment .datetime {
+                color: #9c9c9c;
+                float: right;
+            }
+
+            .comment .comment-content {
+                margin: 0 auto;
+            }
+
+            .comment {
+                margin: 0 auto 10px;
+            }
+
+            .comment .comment-replies {
+                margin: 10px auto 0;
+            }
+
+            .comment-block .comment-actions > * {
+                display: inline-block;
+                margin-right: 15px
+            }
+
+            .comment .thread-toggle,
+            .toplevel-thread > .continue,
+            .toplevel-thread > .loadmore,
+            .comment .item-control,
+            .hidden {
+                display: none;
+            }
+        </style>
+        <!-- item page end -->
+    </b:if>
+    <!-- page specific style end -->
 
     <b:skin><![CDATA[]]></b:skin>
     <!-- styles end -->
@@ -1037,7 +1125,7 @@
                                     </div>
                                 </b:if>
 
-                                <div class="mb-3 j-item"><data:post.body /></div>
+                                <div class="mb-3 j-item post-item"><data:post.body /></div>
 
                                 <b:if cond="data:blog.pageType == &quot;item&quot;">
                                     <b:if cond="data:post.labels">
@@ -1049,7 +1137,11 @@
 
                                     <b:include name="share" />
 
-                                    <b:include name="comments" data="post" />
+                                    <b:if cond="data:post.comments.length">
+                                        <b:include name="comments-thread" data="post" />
+                                    <b:else />
+                                        <b:include name="comments" data="post" />
+                                    </b:if>
                                 </b:if>
 
                                 <b:include name="item-script" />
@@ -1059,6 +1151,27 @@
                                 <div class="sharethis-inline-share-buttons mb-4"></div> 
 
                                 <script async type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=000000000000000000000000&amp;product=inline-share-buttons"></script>
+                            </b:includable>
+
+                            <b:includable id="comments-thread" var="post">
+                                <b:if cond="data:post.comments">
+                                    <section class="card">
+                                        <div class="card-header">
+                                            <h2 class="h5 mb-0">
+                                                <data:post.comments.length />
+                                                Comments
+                                            </h2>
+                                        </div>
+
+                                        <div class="card-body">
+                                            <data:post.commentHtml />
+
+                                            <b:if cond="data:post.allowComments">
+                                                <b:include name="comments-form" data="post" />
+                                            </b:if>
+                                        </div>
+                                    </section>
+                                </b:if>
                             </b:includable>
 
                             <b:includable id="comments" var="post">
