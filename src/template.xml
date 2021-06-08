@@ -2114,6 +2114,7 @@
                 index = -1;
 
                 offset = offset[0] || "";
+                offset = encodeURIComponent(decodeURIComponent(offset));
 
                 if (offset) {
                     index = paginationOffset.indexOf(offset);
